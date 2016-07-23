@@ -1,6 +1,6 @@
 var utils = require('./utils');
 utils.initilize();
-app.get('port')
+
 var Routes = require('./routes/all');
 
 utils.getApp().use('/plant', Routes.getRoutes());
