@@ -10,7 +10,8 @@ exports.generatePng = function(req, res) {
     res.set('Content-Type', 'image/png');
     var encoded = plantumlEncoder.encode(req.body.text)
     console.log('http://www.plantuml.com/plantuml/img/'+encoded);
-    request('http://www.plantuml.com/plantuml/img/'+encoded).pipe(res);
+    res.status(200).jsonp({text: 'http://www.plantuml.com/plantuml/img/'+encoded})
+    //request('http://www.plantuml.com/plantuml/img/'+encoded).pipe(res);
 };
 
 exports.generateSvg = function(req, res) {
