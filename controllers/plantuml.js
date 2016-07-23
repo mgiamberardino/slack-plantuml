@@ -14,8 +14,9 @@ exports.generatePng = function(req, res) {
     text.replace("&amp;","&");
     text.replace("&lt;","<");
     text.replace("&gt;",">");
-    console.log(text);
-    var encoded = plantumlEncoder.encode(text);
+
+    console.log(decodeURIcomponent(text));
+    var encoded = plantumlEncoder.encode(decodeURIcomponent(text));
     console.log('http://www.plantuml.com/plantuml/img/'+encoded);
     res.status(200).jsonp({text: 'http://www.plantuml.com/plantuml/img/'+encoded})
     //request('http://www.plantuml.com/plantuml/img/'+encoded).pipe(res);
