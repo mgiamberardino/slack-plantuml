@@ -1,9 +1,13 @@
 {
- "name": "slack-plantuml",
- "version": "1.0.0",
- "dependencies": {
-   "express": "^4.7.1",
-   "method-override": "^2.1.2",
-   "body-parser": "^1.5.1"
- }
+  "name": "slack-plantuml",
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "^1.5.1",
+    "express": "^4.7.1",
+    "fs": "0.0.2",
+    "method-override": "^2.1.2",
+    "node-plantuml": "^0.4.4",
+    "plantuml-encoder": "^1.2.3",
+    "request": "^2.74.0"
+  }
 }
