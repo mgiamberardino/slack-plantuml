@@ -13,10 +13,17 @@ exports.generatePng = function(req, res) {
     entities = new Entities();
     res.set('Content-Type', 'image/png');
     var text = req.body.text;
-    console.log(entities.decode(text));
-    var encoded = plantumlEncoder.encode(entities.decode(text));
-    console.log('http://www.plantuml.com/plantuml/img/'+encoded);
-    res.status(200).jsonp({text: 'http://www.plantuml.com/plantuml/img/'+encoded})
+    splited = text.split("```");
+    code=splited[1];
+    if (code.includes("@startuml")){
+      console.log(entities.decode(code));
+      var encoded = plantumlEncoder.encode(entities.decode(code));
+      console.log('http://www.plantuml.com/plantuml/img/'+encoded);
+      res.status(200).jsonp({text: 'http://www.plantuml.com/plantuml/img/'+encoded})
+    } else {
+      res.status(400);
+    }
+
     //request('http://www.plantuml.com/plantuml/img/'+encoded).pipe(res);
 };
 
