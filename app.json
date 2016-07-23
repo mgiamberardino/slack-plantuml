@@ -1,8 +1,6 @@
 {
-  "name": "Node.js Getting Started",
+  "name": "Slack PlantUML",
   "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "repository": "https://github.com/mgiamberardino/slack-plantuml",
   "keywords": ["node", "express", "static"],
-  "image": "heroku/nodejs"
 }
