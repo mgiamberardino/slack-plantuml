@@ -1,6 +1,6 @@
 {
   "name": "Slack PlantUML",
-  "description": "A barebones Node.js app using Express 4",
+  "description": "And endpoint to get plantuml images",
   "repository": "https://github.com/mgiamberardino/slack-plantuml",
   "keywords": ["node", "express", "static"],
 }
