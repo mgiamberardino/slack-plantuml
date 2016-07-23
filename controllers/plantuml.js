@@ -14,7 +14,7 @@ exports.generatePng = function(req, res) {
     res.set('Content-Type', 'image/png');
     var text = req.body.text;
     console.log(entities.decode(text));
-    var encoded = plantumlEncoder.encode(text);
+    var encoded = plantumlEncoder.encode(entities.decode(text));
     console.log('http://www.plantuml.com/plantuml/img/'+encoded);
     res.status(200).jsonp({text: 'http://www.plantuml.com/plantuml/img/'+encoded})
     //request('http://www.plantuml.com/plantuml/img/'+encoded).pipe(res);
