@@ -11,9 +11,9 @@ exports.generatePng = function(req, res) {
 
     res.set('Content-Type', 'image/png');
     var text = req.body.text;
-    text.replace('&amp;','&');
-    text.replace('&lt;','<');
-    text.replace('&gt;','>');
+    text.replace("&amp;","&");
+    text.replace("&lt;","<");
+    text.replace("&gt;",">");
     console.log(text);
     var encoded = plantumlEncoder.encode(text);
     console.log('http://www.plantuml.com/plantuml/img/'+encoded);
