@@ -1,5 +1,7 @@
 var plantuml = require('node-plantuml');
 var plantumlEncoder = require('plantuml-encoder')
+var Entities = require('html-entities').XmlEntities;
+
 
 var fs = require('fs'),
     request = require('request');
@@ -8,15 +10,11 @@ exports.generatePng = function(req, res) {
     console.log("Trying to generate an UML image.")
 
     plantuml.useNailgun();
-
+    entities = new Entities();
     res.set('Content-Type', 'image/png');
     var text = req.body.text;
-    text.replace("&amp;","&");
-    text.replace("&lt;","<");
-    text.replace("&gt;",">");
-
-    console.log(unescape(encodeURIComponent(text)));
-    var encoded = plantumlEncoder.encode(unescape(encodeURIComponent(text)));
+    console.log(entities.decode(text));
+    var encoded = plantumlEncoder.encode(text);
     console.log('http://www.plantuml.com/plantuml/img/'+encoded);
     res.status(200).jsonp({text: 'http://www.plantuml.com/plantuml/img/'+encoded})
     //request('http://www.plantuml.com/plantuml/img/'+encoded).pipe(res);
