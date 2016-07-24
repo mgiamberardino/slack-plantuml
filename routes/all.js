@@ -8,6 +8,9 @@ exports.getRoutes = function(){
   routes.route('/png')
     .post(PlantCtrl.generatePng);
 
+  routes.route('/commands/png')
+    .post(PlantCtrl.generateCommandPng);
+
   routes.route('/svg')
     .post(PlantCtrl.generateSvg);
 
