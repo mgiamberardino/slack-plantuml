@@ -21,10 +21,12 @@ exports.generatePng = function(req, res) {
         var encoded = plantumlEncoder.encode(entities.decode(code));
         console.log('http://www.plantuml.com/plantuml/img/'+encoded);
         res.status(200).jsonp({text: 'http://www.plantuml.com/plantuml/img/'+encoded})
-        return;
+      } else {
+        res.status(400);
       }
+    } else {
+      res.status(400);
     }
-    res.status(400);
     //request('http://www.plantuml.com/plantuml/img/'+encoded).pipe(res);
 };
 
