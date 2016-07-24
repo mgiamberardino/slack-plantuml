@@ -24,10 +24,10 @@ exports.generatePng = function(req, res) {
         console.log('http://www.plantuml.com/plantuml/img/'+encoded);
         res.status(200).jsonp({text: 'http://www.plantuml.com/plantuml/img/'+encoded})
       } else {
-        res.status(400).jsonp({});
+        res.status(200).jsonp({text: ""});
       }
     } else {
-      res.status(400).jsonp({});
+      res.status(200).jsonp({text: ""});
     }
     //request('http://www.plantuml.com/plantuml/img/'+encoded).pipe(res);
 };
