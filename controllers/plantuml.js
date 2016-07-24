@@ -14,7 +14,7 @@ exports.generatePng = function(req, res) {
     res.set('Content-Type', 'image/png');
     var text = req.body.text;
     splited = text.split("```");
-    if(splited.size() > 1){
+    if(splited.length > 1){
       code=splited[1];
       if (code.includes("@startuml")){
         console.log(entities.decode(code));
