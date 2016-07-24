@@ -13,6 +13,8 @@ exports.generatePng = function(req, res) {
     entities = new Entities();
     res.set('Content-Type', 'image/png');
     var text = req.body.text;
+    console.log("body " + req.body.text);
+    console.log("params " + req.params.text);
     splited = text.split("```");
     if(splited.length > 1){
       code=splited[1];
